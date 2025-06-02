@@ -22,9 +22,13 @@ namespace Heladeria
 
         public string SaborMasPedidio();
 
-        public string TamañoMasPedido();
+        public string TamañoMasVendido();
 
         public double ticketPromedio();
+
+        public List<Ventas> ListaPedidos();
+
+        public void AgregarDetalleVenta(Ventas venta, Helado helado, TipoTamaño tipoTamaño);
 
     }
 }

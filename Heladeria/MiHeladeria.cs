@@ -107,7 +107,7 @@ namespace Heladeria
             return sabores[indiceMax];
         }
 
-        public string TamañoMasPedido()
+        public string TamañoMasVendido()
         {
             List<string> tamaños = new List<string>();
             List<int> conteoTamaños = new List<int>();
@@ -145,7 +145,7 @@ namespace Heladeria
 
             return tamaños[indiceMax];
         }
-
+        
         public double ticketPromedio()
         {
             double total = 0;
