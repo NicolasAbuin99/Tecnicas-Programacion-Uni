@@ -1,0 +1,11 @@
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\bin\Debug\net8.0\Heladeria.deps.json
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\bin\Debug\net8.0\Heladeria.dll
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\bin\Debug\net8.0\Heladeria.pdb
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\obj\Debug\net8.0\Heladeria.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\obj\Debug\net8.0\Heladeria.AssemblyInfoInputs.cache
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\obj\Debug\net8.0\Heladeria.AssemblyInfo.cs
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\obj\Debug\net8.0\Heladeria.csproj.CoreCompileInputs.cache
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\obj\Debug\net8.0\Heladeria.dll
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\obj\Debug\net8.0\refint\Heladeria.dll
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\obj\Debug\net8.0\Heladeria.pdb
+D:\Nicolas-Ezequiel\Desktop\Tecnicas de Programacion\Ejercicios\PruebaExamen\Heladeria\obj\Debug\net8.0\ref\Heladeria.dll
