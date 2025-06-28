@@ -6,7 +6,7 @@ namespace ProyectoHelados
     public partial class Form1 : Form
     {
         MiHeladeria miHeladeria = new MiHeladeria();
-        List<DetalleVenta> pedidoActual = new List<DetalleVenta>();
+        //public List<DetalleVenta> pedidoActual = new List<DetalleVenta>();
         public List<string> ListaSabores = new List<string>(); 
 
         public Form1()
@@ -17,7 +17,7 @@ namespace ProyectoHelados
             CargarSabores();
         }
 
-        private void CargarTipoTamaños()
+        private void CargarTipoTamaños() // Método privado para poblar el ComboBox de tamaños.
         {
             cmbTamaño.Items.Add(new DosCincuentaGramos("250 Gramos", 200));
             cmbTamaño.Items.Add(new MedioKilo("Medio Kilo", 350));
@@ -25,7 +25,7 @@ namespace ProyectoHelados
             cmbTamaño.DisplayMember = "Tamaño";
         }
         
-        private void CargarSabores()
+        private void CargarSabores() // Método privado para poblar el CheckedListBox de sabores.
         {
             clbSabores.Items.Clear(); 
             foreach (var sabor in miHeladeria.ListaSabores)
@@ -38,7 +38,7 @@ namespace ProyectoHelados
         {
             try
             {
-                List<Ventas> todaslasventas = miHeladeria.ObtenerTodasLasVentas();
+                List<Ventas> todaslasventas = miHeladeria.ObtenerTodasLasVentas(); // Obtiene la lista de todas las ventas de miHeladeria.
                 // Limpiar el DataGridView
                  dataGridView1.Rows.Clear();
        
@@ -51,13 +51,13 @@ namespace ProyectoHelados
 
                 foreach (Ventas venta in todaslasventas)
                 {
-                    string tamaño = "";
+                    string tamaño = ""; // Acumulo los tamaños de los helados en esta venta.
                     string sabores = "";
                     double totalventa = 0;
 
                     foreach (DetalleVenta detalle in venta.DetallesVentas)
                     {
-                        tamaño += detalle.TipoTamaños.Tamaño + ", ";
+                        tamaño += detalle.TipoTamaños.Tamaño + ", "; //Acumula el tamaño 
                         sabores += detalle.Helados.Sabor + ", ";
                         totalventa += detalle.PrecioTotal();
                     }
@@ -78,19 +78,21 @@ namespace ProyectoHelados
             {
                 string nombre = txtNombre.Text;
 
-                TipoTamaño tamañoSeleccionado = (TipoTamaño)cmbTamaño.SelectedItem;
-            
-                Ventas nuevaVenta = miHeladeria.RegistrarVenta(nombre);
+                TipoTamaño tamañoSeleccionado = (TipoTamaño)cmbTamaño.SelectedItem; // Obtiene el elemento seleccionado del ComboBox y lo convierte a TipoTamaño.
 
-                foreach (string SaborElegido in clbSabores.CheckedItems)
+                Ventas nuevaVenta = miHeladeria.RegistrarVenta(nombre); // Registra una nueva venta en miHeladeria con el nombre del cliente y obtiene la venta creada.
+
+
+                foreach (string SaborElegido in clbSabores.CheckedItems) // Itera a través de los sabores seleccionados en el CheckedListBox.
                 {
-                    Helado helado = new Helado(tamañoSeleccionado, SaborElegido, 1000);
-                   // miHeladeria.AgregarHelado(tamañoSeleccionado, SaborElegido, 1000);
-                    DetalleVenta detalleVenta = new DetalleVenta() { Helados = helado, TipoTamaños = tamañoSeleccionado };
-                    nuevaVenta.DetallesVentas.Add(detalleVenta);
-                    //miHeladeria.AgregarDetalleVenta(nuevaVenta, helado, tamañoSeleccionado);
+                    Helado helado = new Helado(tamañoSeleccionado, SaborElegido, 1000); // Crea una nueva instancia de Helado con el tamaño seleccionado, el sabor elegido y un precio base de 1000.
+                                                                                        
+                    DetalleVenta detalleVenta = new DetalleVenta() { Helados = helado }; // Crea un nuevo DetalleVenta asociando el helado y el tamaño.
+
+                    nuevaVenta.DetallesVentas.Add(detalleVenta);// Agrega el detalle de venta a la lista de detalles de la nueva venta.
+                    
                 }
-                miHeladeria.ListaVentas.Add(nuevaVenta);
+                //miHeladeria.ListaVentas.Add(nuevaVenta);
                 MessageBox.Show("Guardado");
             }
             catch (Exception ex)
@@ -134,7 +136,7 @@ namespace ProyectoHelados
         {
             try
             {
-                string TamañoMasPedido = miHeladeria.TamañoMasPedido();
+                string TamañoMasPedido = miHeladeria.TamañoMasVendido();
                 MessageBox.Show("El tamaño mas vendido es " + TamañoMasPedido);
             }
             catch (Exception)

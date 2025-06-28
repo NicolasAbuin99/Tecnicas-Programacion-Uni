@@ -9,8 +9,11 @@ namespace Heladeria
     public class Helado
     {
 		private TipoTamaño _tipoTamaño;
+    //El atributo tipoTamaño es de tipo TipoTamaño
+	//Me permite almacenar cualquier instancia tipo tamaño para el helado que estoy ingresando.
 
-		public TipoTamaño tipoTamaño
+
+        public TipoTamaño tipoTamaño
 		{
 			get { return _tipoTamaño; }
 			set { _tipoTamaño = value; }
@@ -34,8 +37,8 @@ namespace Heladeria
 
 		
 
-		public Helado (TipoTamaño tipotamaño,string sabor, double precio)
-		{
+		public Helado (TipoTamaño tipotamaño,string sabor, double precio) // Constructor de la clase Helado.
+        {
 			this._tipoTamaño = tipotamaño;
 			this._sabor = sabor;
             this._precio = precio;

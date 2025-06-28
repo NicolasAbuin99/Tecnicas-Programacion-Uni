@@ -26,8 +26,6 @@ namespace Heladeria
 
         public double ticketPromedio();
 
-        public List<Ventas> ListaPedidos();
-
         public void AgregarDetalleVenta(Ventas venta, Helado helado, TipoTamaño tipoTamaño);
 
     }

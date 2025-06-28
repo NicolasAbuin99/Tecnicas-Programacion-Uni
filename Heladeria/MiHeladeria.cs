@@ -37,52 +37,47 @@ namespace Heladeria
 
         public Ventas RegistrarVenta(string nombrecliente)
         {
-            Ventas nuevaVenta = new Ventas(nombrecliente, DateTime.Now.ToString("yyyyMMddHHmmss"), DateTime.Now);
+            Ventas nuevaVenta = new Ventas(nombrecliente, DateTime.Now.ToString("yyyyMMddHHmmss"), DateTime.Now); // Crea una nueva instancia de Venta.
             ListaVentas.Add(nuevaVenta);
-            return nuevaVenta;
+            return nuevaVenta; // Retorna la venta recién creada para poder añadirle detalles.
         }
 
-        public void AgregarDetalleVenta(Ventas venta, Helado helado, TipoTamaño tipoTamaño)
+        public void AgregarDetalleVenta(Ventas venta, Helado helado, TipoTamaño tipoTamaño) // Le Agrego un detalle de venta a una venta existente.
         {
-            DetalleVenta detalle = new DetalleVenta() { Helados = helado, TipoTamaños = tipoTamaño};
-            venta.DetallesVentas.Add(detalle);
+            DetalleVenta detalle = new DetalleVenta() { Helados = helado, TipoTamaños = tipoTamaño}; //// Crea un nuevo DetalleVenta
+            venta.DetallesVentas.Add(detalle); //lo agrega a la lista detalle de venta en la clase venta
         }
 
         public double TotalRecaudado()
         {
             double totalRecaudado = 0;
 
-            foreach (Ventas venta in ListaVentas)
+            foreach (Ventas venta in ListaVentas) // Itera sobre cada venta en la lista.
             {
-                foreach (DetalleVenta detalle in venta.DetallesVentas)
+                foreach (DetalleVenta detalle in venta.DetallesVentas) // Itera sobre cada detalle de venta en la venta actual.
                 {
-                    totalRecaudado += detalle.PrecioTotal(); //acumula el precio
+                    totalRecaudado = totalRecaudado + detalle.PrecioTotal(); //acumula el precio
                 }
             }
 
             return totalRecaudado;
         }
 
-        public List<Ventas> ListaPedidos()
-        {
-            return ListaVentas;
-        }
-
         public string SaborMasPedidio()
         {
-            List<string> sabores = new List<string>();
-            List<int> conteoSabores = new List<int>();
+            List<string> sabores = new List<string>(); // Lista para almacenar los sabores únicos.
+            List<int> conteoSabores = new List<int>(); // Lista para almacenar el conteo de cada sabor
             foreach (Ventas venta in ListaVentas)
             {
                 foreach (DetalleVenta detalle in venta.DetallesVentas)
                 {
                     string sabor = detalle.Helados.Sabor;
 
-                    int indiceSabor = sabores.IndexOf(sabor);
+                    int indiceSabor = sabores.IndexOf(sabor); // Busca si el sabor ya está en la lista de sabores únicos.
 
                     if (indiceSabor != -1)
                     {
-                        conteoSabores[indiceSabor]++;
+                        conteoSabores[indiceSabor]++; // Incrementa el conteo del sabor
                     }
                     else
                     {
@@ -93,7 +88,7 @@ namespace Heladeria
             }
 
             int indiceMax = 0;
-            int Max = conteoSabores[0];
+            int Max = conteoSabores[0]; // Inicializa el conteo máximo con el primer elemento.
 
             for (int i = 1; i < conteoSabores.Count; i++)
             {
